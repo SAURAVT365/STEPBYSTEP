@@ -24,9 +24,10 @@ public class calculator {
             break;
             case 3: System.out.println("SUBSTRACTION OF TWO NUMBER IS " + sub);
             break;
-            case 4: System.out.println("SUBSTRACTION OF TWO NUMBER IS " + add);
+            case 4: System.out.println("ADDITION OF TWO NUMBER IS " + add);
             break;
             default:System.out.println("Invalid");
         }
     }
+
 }
