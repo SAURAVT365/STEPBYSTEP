@@ -1,26 +1,53 @@
-import javax.Swing.*;
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class userInfoFrom Extends JFrame implements ActionListner { 
-Jlable nameLable,ageLable;
-JTextField nameField, ageField;
-JButton checkButton;
-public UserInfoFrom() {
-setLayout(new FlowLayout());
-setSize(300,200);
-setTitle("User Info Form");
-setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-nameLable = new JTextField(15);
-ageLable = new Jlable("Enter Age:");
-ageField = new JTextField(5);
-checkButton = new JButton(" Check Eligibility");
-checkButton.addActionListener(this);
+public class UserInfoForm extends JFrame implements ActionListener {
 
-add(nameLable);
-add(nameField);
-add(ageLable);
-add(ageField);
-add(checkButton);
+    JLabel nameLabel, ageLabel;
+    JTextField nameField, ageField;
+    JButton checkButton;
 
-set
+    public UserInfoForm() {
+
+        setLayout(new FlowLayout());
+        setSize(300, 200);
+        setTitle("User Info Form");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        nameLabel = new JLabel("Enter Name:");
+        nameField = new JTextField(15);
+
+        ageLabel = new JLabel("Enter Age:");
+        ageField = new JTextField(5);
+
+        checkButton = new JButton("Check Eligibility");
+        checkButton.addActionListener(this);
+
+        add(nameLabel);
+        add(nameField);
+        add(ageLabel);
+        add(ageField);
+        add(checkButton);
+
+        setVisible(true);
+    }
+
+    public void actionPerformed(ActionEvent e) {
+        String name = nameField.getText();
+        int age = Integer.parseInt(ageField.getText());
+
+        if (age >= 18) {
+            JOptionPane.showMessageDialog(this,
+                name + ", you are eligible.");
+        } else {
+            JOptionPane.showMessageDialog(this,
+                name + ", you are NOT eligible.");
+        }
+    }
+
+    public static void main(String[] args) {
+        new UserInfoForm();
+    }
+}
+
